@@ -20,7 +20,7 @@ function MyVerticallyCenteredModal(props) {
   };
 
   useEffect(() => {
-    if (selectedTask && Object.keys(selectedTask).length !== 0) {
+    if ( Object.keys(selectedTask).length !== 0) {
       setTitle(selectedTask.title);
       setDescription(selectedTask.description);
       setId(selectedTask.id);

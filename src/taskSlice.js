@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   TaskList: [],
-  seletedTask: {},
+  selectedTask: {}
 };
 const taskSlice = createSlice({
   name: "taskSlice",
@@ -20,15 +20,20 @@ const taskSlice = createSlice({
     },
     removeFromTaskList: (state, action) => {
       state.TaskList = state.TaskList.filter(
-        (task) => task.id === action.payload.id
+        (task) => task.id !== action.payload.id
       );
     },
-    setseletedTask:(state, action) => {
-        state.seletedTask = action.payload
-    }
+
+    setseletedTask: (state, action) => {
+      state.selectedTask = action.payload;
+    },
   },
 });
 
-export const { addTaskToList, updateTaskList, removeFromTaskList, setseletedTask } =
-  taskSlice.actions;
+export const {
+  addTaskToList,
+  updateTaskList,
+  removeFromTaskList,
+  setseletedTask,
+} = taskSlice.actions;
 export default taskSlice.reducer;
